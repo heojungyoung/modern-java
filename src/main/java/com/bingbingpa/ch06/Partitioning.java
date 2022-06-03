@@ -16,6 +16,12 @@ public class Partitioning {
         System.out.println("Most caloric dishes by vegetarian: " + mostCaloricPartitionedByVegetarian());
     }
 
+    /*
+        Dishes partitioned by vegetarian: {false=[pork, beef, chicken, prawns, salmon], true=[french fries, rice, season fruit, pizza]}
+        Vegetarian Dishes by type: {false={MEAT=[pork, beef, chicken], FISH=[prawns, salmon]}, true={OTHER=[french fries, rice, season fruit, pizza]}}
+        Most caloric dishes by vegetarian: {false=pork, true=pizza}
+    */
+
     private static Map<Boolean, List<Dish>> partitionByVegetarian() {
         return menu.stream().collect(partitioningBy(Dish::isVegetarian));
     }
