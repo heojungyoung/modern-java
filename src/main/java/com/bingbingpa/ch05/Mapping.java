@@ -16,20 +16,30 @@ public class Mapping {
             .map(Dish::getName)
             .collect(toList());
         System.out.println(dishNames);
-
+        // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
         // map
         List<String> words = Arrays.asList("Hello", "World");
         List<Integer> wordLengths = words.stream()
             .map(String::length)
             .collect(toList());
         System.out.println(wordLengths);
-
+        // [5, 5]
         // flatMap
         words.stream()
             .flatMap((String line) -> Arrays.stream(line.split("")))
             .distinct()
             .forEach(System.out::println);
-        
+    /*
+        H
+        e
+        l
+        o
+        W
+        r
+        d
+    */
+
+
         // flatMap
         List<Integer> numbers1 = Arrays.asList(1,2,3,4,5);
         List<Integer> numbers2 = Arrays.asList(6,7,8);
@@ -40,5 +50,7 @@ public class Mapping {
             .filter(pair -> (pair[0] + pair[1]) % 3 == 0)
             .collect(toList());
         pairs.forEach(pair -> System.out.printf("(%d, %d)", pair[0], pair[1]));
+
+        // (1, 8)(2, 7)(3, 6)(4, 8)(5, 7)
     }
 }
