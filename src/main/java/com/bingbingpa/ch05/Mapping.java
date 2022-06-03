@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.bingbingpa.ch04.Dish;
 
@@ -52,5 +53,28 @@ public class Mapping {
         pairs.forEach(pair -> System.out.printf("(%d, %d)", pair[0], pair[1]));
 
         // (1, 8)(2, 7)(3, 6)(4, 8)(5, 7)
+
+        List<Integer> list = List.of(2, 10, 15, 1, 9);
+
+        list.stream()
+                .flatMap(i -> Stream.of(i + 10, i + 20))
+                .forEach(System.out::println);
+
+    /*
+        22
+        20
+        30
+        25
+        35
+        11
+        21
+        19
+        29
+    */
+
+
+
+
+
     }
 }
