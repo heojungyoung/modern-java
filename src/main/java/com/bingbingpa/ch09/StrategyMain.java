@@ -6,15 +6,19 @@ public class StrategyMain {
         // old school
         Validator v1 = new Validator(new IsNumeric());
         System.out.println(v1.validate("aaaa"));
+        // false
         Validator v2 = new Validator(new IsAllLowerCase());
         System.out.println(v2.validate("bbbb"));
-
+        // true
         // with lambdas
         Validator v3 = new Validator((String s) -> s.matches("\\d+"));
         System.out.println(v3.validate("aaaa"));
+        // false
         Validator v4 = new Validator((String s) -> s.matches("[a-z]+"));
         System.out.println(v4.validate("bbbb"));
+        // true
     }
+
 
     interface ValidationStrategy {
         boolean execute(String s);
