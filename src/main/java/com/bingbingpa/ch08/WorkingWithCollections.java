@@ -31,6 +31,7 @@ public class WorkingWithCollections {
         System.out.println("--> Mutating a list with a ListIterator");
         for(ListIterator<String> iterator = referenceCodes.listIterator(); iterator.hasNext();) {
             String code = iterator.next();
+            System.out.println(code);
             iterator.set(Character.toUpperCase(code.charAt(0)) + code.substring(1));
         }
         System.out.println("이번에는 원본 리스트가 변했다.: " + referenceCodes);
@@ -148,7 +149,10 @@ public class WorkingWithCollections {
         System.out.println("--> Merging maps using merge()");
         Map<String, String> everyone2 = new HashMap<>(family);
         // 중복된 키가 있으면 두 값을 연결한다.
-        friends2.forEach((k, v) -> everyone2.merge(k, v, (movie1, movie2) -> movie1 + " & " + movie2));
+        // Cristina키가 중복되므로 value가 덮어쓰여진다.
+        friends2.forEach((k, v) -> everyone2.merge(k, v, (movie1, movie2) -> movie1 + " , " + movie2));
+
+        System.out.println("everyone2");
         System.out.println(everyone2);
     }
 }
